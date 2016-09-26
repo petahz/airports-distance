@@ -1,6 +1,10 @@
 {
   "example": {
     "port": 3060,
-    "baseUrl": "http://localhost:3020/"
+    "baseUrl": "http://localhost:3060/"
+  },
+  "airportApi": {
+    "baseUrl": "https://airport.api.aero/airport/",
+    "key": "385923a121bca21936b611a2ed6b6921"
   }
 }

@@ -10,6 +10,7 @@ if (NodeUtils.isProduction()) {
 
     const express = require('express');
     const path = require('path');
+    const request = require('request');
 
     const app = express();
 
@@ -19,6 +20,20 @@ if (NodeUtils.isProduction()) {
             __dirname + '/dist'
         )
     );
+
+    app.get('/get-distance', (req,res) => {
+        var url = config.airportApi.baseUrl + "distance/" + req.query.fromAirportCode + "/" + req.query.toAirportCode;
+        var queryParams = {user_key: config.airportApi.key};
+
+        request.get({url: url, qs: queryParams, json: true}, (err, response, body) => {
+            if (err) res.send(404);
+
+            var kilometerToNauticalMile = 0.539957;
+            body.distance = parseInt(body.distance.replace(',','')) * kilometerToNauticalMile;
+            body.units = "nautical miles";
+            res.json(body);
+        });
+    });
 
     // Configure server-side routing
     app.get('*', (req,res) => {

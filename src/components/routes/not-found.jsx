@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function NotFound (props) {
+function NotFound (props) {
     console.log(props);
     return (
         <section>

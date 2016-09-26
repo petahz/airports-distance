@@ -23,13 +23,13 @@ const styles = {
     container: {
         margin: 5,
         padding: 5,
-        backgroundColor: '#F1F8E9',
+        backgroundColor: '#E2FBFF',
         borderTopRightRadius: 10,
         borderBottomLeftRadius: 10,
-        border: '1px solid #558B2F'
+        border: '1px solid #1976D2'
     },
     heading: {
-        color: '#558B2F',
+        color: '#1976D2',
         margin: 0,
         marginBottom: 5
     },

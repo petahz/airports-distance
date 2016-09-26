@@ -1,53 +1,23 @@
-# react-boilerplate
-A slightly opinionated setup for ReactJS projects
+# Airport Distance app
+The task was to create a web app that calculates the distance (in nautical miles) between two airports. The app should auto-
+complete the airports and should feature all airports in the U.S. only. Bonus: plot the trip on Google maps.
 
 #### http://mikechabot.github.io/react-boilerplate/
 
-## Features
+## Process
+I started by finding a react starter kit that would have a lot of the boilerplate set up without having too much bells and whistles and came across react-boilerplate, which set up Webpack, React, Redux, ES6, Babel transpiler, and file structure.
 
-#### Build Process
- * Built with [webpack](https://webpack.github.io/)
- * Supports ES6 via [Babel](https://babeljs.io/) transpiling
+I then proceeded to look for a list of all U.S. airports, and came across a JSON of all airports in the world. This turned out to be my best option (second best was an NPM module that returned a filterable Backbone model), which I then parsed to filter only U.S. airports. I put this in a us_airports.json file.
 
-#### State Management
-* [redux](http://redux.js.org/index.html) for state management
-* [react-redux](https://github.com/reactjs/react-redux) for stateful component bindings
-* [redux-thunk](https://github.com/gaearon/redux-thunk) for [asynchronous actions](https://github.com/mikechabot/react-boilerplate/blob/master/src/redux/actions/thunk-action-creators.js#L21)
-* [redux-logger](https://github.com/theaqua/redux-logger) for capturing actions
+From there, I, while doing a lot of reading on above technologies, put together AirportDistance and AirportDistanceResults components, and set up action-creators and reducers for setting airport model values and distance in Redux.
 
-#### Routing
-* [react-router](https://github.com/reactjs/react-router) for client-side [routing](https://github.com/mikechabot/react-boilerplate/blob/master/src/routes.js)
+Even though there was no time limit, working full-time, I wanted to complete it in a weekend and get to a working implementation quickly. I would be happy to make any updates one would like to see.
 
-#### HTTP
-* [Customizable](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/ajax-service.js#L11), promise-based HTTP support via [Axios](https://github.com/mzabriskie/axios)
-* Implementing [data services](https://github.com/mikechabot/react-boilerplate/blob/master/src/services/data/data-access-service.js#L29) utilize [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+Future possibilities:
+- Add airport codes to names to allow for typing in and searching on code and name.
+- Understanding conventions in React and Redux better to restructure files
 
-#### Styling
-* Supports [SCSS & SASS](http://sass-lang.com/) syntax
-* Browser compatibility via [autoprefixing](https://github.com/postcss/autoprefixer)
-
-#### Develop & Deploy
-* Environmental configurations for both webpack and redux
-  * **Dev** // [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) with [React Hot Loader](http://gaearon.github.io/react-hot-loader/) for live refresh. `redux-logger` enabled.
-  * **Prod** // [Express](http://expressjs.com/) server with `redux-logger` disabled.
-* See [here](https://github.com/mikechabot/react-boilerplate/blob/master/webpack.config.js#L69) and [here](https://github.com/mikechabot/react-boilerplate/blob/master/src/redux/store/configure-store.js#L9)
-
-#### Testing
-* Tested with [Mocha](https://mochajs.org/)
-* Coverage support via [Istanbul](https://gotwarlost.github.io/istanbul/)
-* [react-addons-test-utils](https://facebook.github.io/react/docs/test-utils.html) for component testing
-* [redux-mock-store](https://github.com/arnaudbenard/redux-mock-store) for Redux state testing
-* [Sinon.JS](http://sinonjs.org/) for mocking, stubbing & spying
 
 ## Get Started
-1. git clone https://github.com/mikechabot/react-boilerplate.git
-2. `npm install`
-3. Launch environment:
-  *  **Production**: `npm start`
-  *  **Development**: `npm run dev`
-
-#### Test Commands
-* `npm test`: Shortcut for `test:coverage`
-* `npm run test:unit`: Run unit tests located in `test/unit/**/*.js`
-* `npm run test:integration`: Run integration tests location in `test/integration/**/*.js`
-* `npm run test:coverage`: Run coverage for unit and integration tests
+1. `npm install`
+2. `npm start`

@@ -1,5 +1,6 @@
 import config from './config/config';
 import NodeUtils from './src/services/common/node-service';
+import common from './src/common/common';
 
 const { example } = config;
 if (!example) throw new Error('boilerplateExample configuration cannot be null/undefined');
@@ -28,8 +29,7 @@ if (NodeUtils.isProduction()) {
         request.get({url: url, qs: queryParams, json: true}, (err, response, body) => {
             if (err) res.send(404);
 
-            var kilometerToNauticalMile = 0.539957;
-            body.distance = parseInt(body.distance.replace(',','')) * kilometerToNauticalMile;
+            body.distance = common.kilometerToNauticalMile(body.distance);
             body.units = "nautical miles";
             res.json(body);
         });

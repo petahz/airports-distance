@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AjaxRequest from './ajax/ajax-request';
+import AirportDistance from './airport/airport-distance';
+import AirportDistanceResults from './airport/airport-distance-results';
 import CodeBlock from './common/code-block';
 import HeroHeading from './common/hero-heading';
 import Tabs from './tabs/tabs';
@@ -16,46 +18,31 @@ function App ({
         <section style={style.wrapper}>
 
             <HeroHeading
-                title="react-boilerplate"
-                subtitle="A slightly opinionated setup for ReactJS"
+                title="Airport Distance"
+                subtitle="A calculator of nautical miles between U.S. airports"
             />
 
             <section style={style.container}>
 
                 { /* Render AJAX example */ }
                 <Panel
-                    faIcon="download"
+                    faIcon="plane"
                     style={style.panel}
-                    title="Ajax Example">
-                    <AjaxRequest />
+                    title="How far are two U.S. airports?">
+                    <AirportDistance />
+                    <AirportDistanceResults />
                 </Panel>
 
-                <section style={style.column}>
-
-                    { /* Render router example */ }
-                    <Panel
-                        faIcon="link"
-                        style={style.panel}
-                        title="Router Example" >
-                        <Tabs activePath={location.pathname} >
-                            { children }
-                        </Tabs>
-                    </Panel>
-
-                    { /* Render Redux state */ }
-                    <Panel
-                        faIcon="tree"
-                        style={style.panel}
-                        title="Redux State" >
-                        <CodeBlock code={state} />
-                    </Panel>
-
-                </section>
+                <Panel
+                    faIcon="tree"
+                    style={style.panel}
+                    title="Redux State" >
+                    <CodeBlock code={state} />
+                </Panel>
 
             </section>
 
             { /* Render footer */ }
-            <Footer />
 
         </section>
     )
@@ -77,7 +64,7 @@ const style = {
         flexDirection: 'column'
     },
     panel: {
-        width: 450
+        width: 900
     }
 };
 

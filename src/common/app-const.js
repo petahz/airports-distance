@@ -1,7 +1,7 @@
 export const INITIAL_STATE = {
     model: {
-        fooEntity: {},
-        barEntity: {}
+        firstAirport: {},
+        secondAirport: {}
     },
-    counter: 0
+    distance: 0
 };

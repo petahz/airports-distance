@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import model from './model';
-import counter from './counter';
+import distance from './distance';
 
 export default combineReducers({
     model,
-    counter
+    distance
 });

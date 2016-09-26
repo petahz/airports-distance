@@ -4,9 +4,13 @@ import {
     FETCH_FAILURE,
     RESET_ENTITY,
     DELETE_ENTITY,
+    SET_FIRST_AIRPORT,
+    SET_SECOND_AIRPORT,
+    SET_DISTANCE,
     INCREMENT_COUNTER,
     DECREMENT_COUNTER,
-    RESET_COUNTER
+    RESET_COUNTER,
+    SET_AIRPORT
 } from './types';
 
 export const resetEntity    = makeActionCreator(RESET_ENTITY, 'entity', 'lastUpdated');
@@ -14,6 +18,9 @@ export const deleteEntity   = makeActionCreator(DELETE_ENTITY, 'entity');
 export const increment      = makeActionCreator(INCREMENT_COUNTER);
 export const decrement      = makeActionCreator(DECREMENT_COUNTER);
 export const reset          = makeActionCreator(RESET_COUNTER);
+export const setFirstAirport = makeActionCreator(SET_FIRST_AIRPORT, 'value');
+export const setSecondAirport = makeActionCreator(SET_SECOND_AIRPORT, 'value');
+export const setDistance    = makeActionCreator(SET_DISTANCE, "value");
 
 /**
  * To reduce boilerplate code, we can utilize generic function to generate

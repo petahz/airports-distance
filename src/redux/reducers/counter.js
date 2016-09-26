@@ -5,7 +5,7 @@ import {
     RESET_COUNTER
 } from '../actions/types';
 
-const counter = (state = INITIAL_STATE.counter, action) => {
+const counter = (state = 0, action) => {
     switch(action.type) {
         case INCREMENT_COUNTER: {
             return state + 1;

@@ -3,6 +3,8 @@ import {
     FETCH_REQUEST,
     FETCH_SUCCESS,
     FETCH_FAILURE,
+    SET_FIRST_AIRPORT,
+    SET_SECOND_AIRPORT,
     RESET_ENTITY,
     DELETE_ENTITY
 } from '../actions/types';
@@ -25,6 +27,18 @@ const model = (state = INITIAL_STATE.model, action) => {
                     state[action.entity],
                     action
                 )
+            }
+        }
+        case SET_FIRST_AIRPORT: {
+            return {
+                ...state,
+                firstAirport: action.value
+            }
+        }
+        case SET_SECOND_AIRPORT: {
+            return {
+                ...state,
+                secondAirport: action.value
             }
         }
         default: {

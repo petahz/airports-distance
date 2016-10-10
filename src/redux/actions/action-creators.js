@@ -4,10 +4,7 @@ import {
     FETCH_FAILURE,
     RESET_ENTITY,
     DELETE_ENTITY,
-    SET_FIRST_AIRPORT,
-    SET_SECOND_AIRPORT,
-    SET_FIRST_AIRPORT_RESULT,
-    SET_SECOND_AIRPORT_RESULT,
+    SET_MODEL_VALUE,
     SET_DISTANCE,
     INCREMENT_COUNTER,
     DECREMENT_COUNTER,
@@ -20,10 +17,8 @@ export const deleteEntity   = makeActionCreator(DELETE_ENTITY, 'entity');
 export const increment      = makeActionCreator(INCREMENT_COUNTER);
 export const decrement      = makeActionCreator(DECREMENT_COUNTER);
 export const reset          = makeActionCreator(RESET_COUNTER);
-export const setFirstAirport = makeActionCreator(SET_FIRST_AIRPORT, 'value');
-export const setSecondAirport = makeActionCreator(SET_SECOND_AIRPORT, 'value');
-export const setFirstAirportResult = makeActionCreator(SET_FIRST_AIRPORT_RESULT, 'value');
-export const setSecondAirportResult = makeActionCreator(SET_SECOND_AIRPORT_RESULT, 'value');
+
+export const setModelValue = makeActionCreator(SET_MODEL_VALUE, 'entity', 'value');
 export const setDistance    = makeActionCreator(SET_DISTANCE, "value");
 
 /**

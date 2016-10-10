@@ -18,6 +18,7 @@ export class AirportDistanceResults extends React.Component {
 
   render() {
     if (this.props.firstAirportResult && this.props.secondAirportResult && this.props.distance) {
+      console.log('rendering airport distance results');
       return (
         <div style={{...styles.forms}}>
           <p>The distance between {this.props.firstAirportResult.code} and {this.props.secondAirportResult.code} is {Math.round(this.props.distance)} nautical miles.</p>

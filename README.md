@@ -11,7 +11,9 @@ I then proceeded to look for a list of all U.S. airports, and came across a JSON
 
 From there, I, while doing a lot of reading on above technologies, put together AirportDistance and AirportDistanceResults components, and set up action-creators and reducers for setting airport model values and distance in Redux.
 
-Even though there was no time limit, working full-time, I wanted to complete it in a weekend and get to a working implementation quickly. I would be happy to make any updates one would like to see.
+I used material-ui for an autocomplete dropdown, and google-maps-react, which I had to dig into the source code for to figure out what props I can pass in to have it show the way I wanted. There is a simple server-side endpoint used to hit the Airport API and fetch the distance between two airports.
+
+Even though there was no time limit, as I am working full-time, I wanted to complete it in a weekend and get to a working implementation quickly. I would be happy to make any updates one would like to see.
 
 Future possibilities:
 - Add airport codes to names to allow for typing in and searching on code and name.

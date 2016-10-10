@@ -1,13 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AjaxRequest from './ajax/ajax-request';
 import AirportDistance from './airport/airport-distance';
 import AirportDistanceResults from './airport/airport-distance-results';
 import CodeBlock from './common/code-block';
 import HeroHeading from './common/hero-heading';
-import Tabs from './tabs/tabs';
 import Panel from './common/panel';
-import Footer from './common/footer';
 
 function App ({
     children,
@@ -24,7 +21,6 @@ function App ({
 
             <section style={style.container}>
 
-                { /* Render AJAX example */ }
                 <Panel
                     faIcon="plane"
                     style={style.panel}
@@ -33,16 +29,17 @@ function App ({
                     <AirportDistanceResults />
                 </Panel>
 
-                <Panel
-                    faIcon="tree"
-                    style={style.panel}
-                    title="Redux State" >
-                    <CodeBlock code={state} />
-                </Panel>
+                { // Nice for debugging to see entire Redux store
+                // Probably a Chrome extension that does the same
+                // <Panel
+                //     faIcon="tree"
+                //     style={style.panel}
+                //     title="Redux State" >
+                //     <CodeBlock code={state} />
+                // </Panel> 
+                }
 
             </section>
-
-            { /* Render footer */ }
 
         </section>
     )

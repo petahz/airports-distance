@@ -3,6 +3,7 @@ import {
     apiSuccess,
     apiFailure
 } from './action-creators';
+import DataAccessService from '../../services/data/data-access-service.js';
 
 /**
  * Redux thunk action creator for making asynchronous API calls. This thunk
@@ -83,6 +84,13 @@ export function fetchBar() {
     return loadEntity(
         'barEntity',
         fakePromise()
+    );
+}
+
+export function fetchDistance() {
+    return loadEntity(
+        'firstAirport',
+        DataAccessService.get()
     );
 }
 

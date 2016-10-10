@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 const usAirports = require('../../common/us_airports.json');
-import { setFirstAirport, setSecondAirport, setDistance } from '../../redux/actions/action-creators';
+import { setFirstAirport, setSecondAirport, setFirstAirportResult, setSecondAirportResult, setDistance } from '../../redux/actions/action-creators';
 import { fetchDistance } from '../../redux/actions/thunk-action-creators';
 import DataAccessService from '../../services/data/data-access-service';
 import onTouchTap from 'react-tap-event-plugin';
@@ -29,6 +29,8 @@ export class AirportDistance extends React.Component {
 
   fetchDistance = () => {
     if (this.props.firstAirport && this.props.secondAirport.code ) {
+      this.props.setFirstAirportResult(this.props.firstAirport);
+      this.props.setSecondAirportResult(this.props.secondAirport);
       var url = "/get-distance?fromAirportCode=" + this.props.firstAirport.code + "&toAirportCode=" + this.props.secondAirport.code;
       console.log('url: ', url);
       DataAccessService.get(url).then(response => {
@@ -83,6 +85,6 @@ export default connect(
         firstAirport : state.model.firstAirport,
         secondAirport : state.model.secondAirport
     }),
-    { setFirstAirport, setSecondAirport, setDistance, fetchDistance }
+    { setFirstAirport, setSecondAirport, setFirstAirportResult, setSecondAirportResult, setDistance, fetchDistance }
 
 )(AirportDistance);

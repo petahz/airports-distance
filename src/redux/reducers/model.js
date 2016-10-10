@@ -5,6 +5,8 @@ import {
     FETCH_FAILURE,
     SET_FIRST_AIRPORT,
     SET_SECOND_AIRPORT,
+    SET_FIRST_AIRPORT_RESULT,
+    SET_SECOND_AIRPORT_RESULT,
     RESET_ENTITY,
     DELETE_ENTITY
 } from '../actions/types';
@@ -39,6 +41,22 @@ const model = (state = INITIAL_STATE.model, action) => {
             return {
                 ...state,
                 secondAirport: action.value
+            }
+        }
+        case SET_FIRST_AIRPORT_RESULT: {
+            console.log('is this hit first airport result reducer');
+            console.log(action.value);
+            return {
+                ...state,
+                firstAirportResult: action.value
+            }
+        }
+        case SET_SECOND_AIRPORT_RESULT: {
+            console.log('is this hit second airport result reducer');
+            console.log(action.value);
+            return {
+                ...state,
+                secondAirportResult: action.value
             }
         }
         default: {

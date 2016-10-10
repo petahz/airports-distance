@@ -1,7 +1,9 @@
 export const INITIAL_STATE = {
     model: {
         firstAirport: {},
-        secondAirport: {}
+        secondAirport: {},
+        firstAirportResult: {},
+        secondAirportResult: {}
     },
     distance: 0
 };

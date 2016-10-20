@@ -3,7 +3,7 @@ export const INITIAL_STATE = {
         firstAirport: {},
         secondAirport: {},
         firstAirportResult: {},
-        secondAirportResult: {}
-    },
-    distance: 0
+        secondAirportResult: {},
+        distance: {}
+    }
 };

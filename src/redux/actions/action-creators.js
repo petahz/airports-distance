@@ -19,7 +19,6 @@ export const decrement      = makeActionCreator(DECREMENT_COUNTER);
 export const reset          = makeActionCreator(RESET_COUNTER);
 
 export const setModelValue = makeActionCreator(SET_MODEL_VALUE, 'entity', 'value');
-export const setDistance    = makeActionCreator(SET_DISTANCE, "value");
 
 /**
  * To reduce boilerplate code, we can utilize generic function to generate

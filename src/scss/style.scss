@@ -100,3 +100,7 @@ pre .line::before {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.center-margin {
+  margin: 0 auto;
+}

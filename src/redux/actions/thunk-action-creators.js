@@ -87,10 +87,12 @@ export function fetchBar() {
     );
 }
 
-export function fetchDistance() {
+export function fetchDistance(firstAirportCode, secondAirportCode) {
+    var url = "/get-distance?fromAirportCode=" + firstAirportCode + "&toAirportCode=" + secondAirportCode;
+
     return loadEntity(
-        'firstAirport',
-        DataAccessService.get()
+        'distance',
+        DataAccessService.get(url)
     );
 }
 

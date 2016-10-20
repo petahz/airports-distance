@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import LoadingIndicator from '../common/loading-indicator';
 import DataAccessService from '../../services/data/data-access-service';
 import { Map, Marker } from 'google-maps-react';
 import common from '../../common/common';
@@ -17,11 +18,14 @@ export class AirportDistanceResults extends React.Component {
   }
 
   render() {
-    if (this.props.firstAirportResult && this.props.secondAirportResult && this.props.distance) {
-      console.log('rendering airport distance results');
+    if (this.props.distance.isFetching) {
+      return (
+        <LoadingIndicator/>
+      );
+    } else if (this.props.firstAirportResult && this.props.secondAirportResult && this.props.distance.data) {
       return (
         <div style={{...styles.forms}}>
-          <p>The distance between {this.props.firstAirportResult.code} and {this.props.secondAirportResult.code} is {Math.round(this.props.distance)} nautical miles.</p>
+          <p>The distance between {this.props.firstAirportResult.code} and {this.props.secondAirportResult.code} is {Math.round(this.props.distance.data.distance)} nautical miles.</p>
           <Map google={window.google} zoom={4} initialCenter={{lat: this.centerLat, lng: this.centerLng}} containerStyle={{...styles.mapContainerStyle}} style={{...styles.map}}>
             <Marker
               name={this.props.firstAirportResult.name}
@@ -43,8 +47,7 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    alignItems: 'center',
-    marginTop: '25px'
+    alignItems: 'center'
   },
   map: {
     position: 'relative',
@@ -62,7 +65,7 @@ export default connect(
     (state) => ({
         firstAirportResult : state.model.firstAirportResult,
         secondAirportResult : state.model.secondAirportResult,
-        distance: state.distance
+        distance: state.model.distance
     }),
     { }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 const usAirports = require('../../common/us_airports.json');
-import { setModelValue, setDistance } from '../../redux/actions/action-creators';
+import { setModelValue } from '../../redux/actions/action-creators';
 import { fetchDistance } from '../../redux/actions/thunk-action-creators';
 import DataAccessService from '../../services/data/data-access-service';
 import onTouchTap from 'react-tap-event-plugin';
@@ -12,8 +12,6 @@ export class AirportDistance extends React.Component {
   constructor(props) {
     console.log('props: ', props);
     super(props);
-
-    this.setDistance = props.setDistance;
 
     this.state = {
       dataSource: usAirports,
@@ -33,16 +31,15 @@ export class AirportDistance extends React.Component {
     value: 'code',
   }
 
-  fetchDistance = () => {
+  getDistance = () => {
     if (this.props.firstAirport && this.props.secondAirport.code ) {
-      this.props.setModelValue('firstAirportResult', this.props.firstAirport);
-      this.props.setModelValue('secondAirportResult', this.props.secondAirport);
-      var url = "/get-distance?fromAirportCode=" + this.props.firstAirport.code + "&toAirportCode=" + this.props.secondAirport.code;
-      console.log('url: ', url);
-      DataAccessService.get(url).then(response => {
-        console.log('response: ', response);
-        this.setDistance(response.distance);
-      });
+        this.props.setModelValue('firstAirportResult', this.props.firstAirport);
+        this.props.setModelValue('secondAirportResult', this.props.secondAirport);
+      this.props.fetchDistance(this.props.firstAirport.code, this.props.secondAirport.code);
+      // setDistance().then(function(response) {
+      //   this.props.setModelValue('firstAirportResult', this.props.firstAirport);
+      //   this.props.setModelValue('secondAirportResult', this.props.secondAirport);
+      // });
     }
   }
 
@@ -69,7 +66,7 @@ export class AirportDistance extends React.Component {
         />
         <button
             className="button-primary"
-            onClick={this.fetchDistance}>
+            onClick={this.getDistance}>
             Submit
         </button>
       </div>
@@ -82,7 +79,8 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: '25px'
   }
 }
 
@@ -91,6 +89,6 @@ export default connect(
         firstAirport : state.model.firstAirport,
         secondAirport : state.model.secondAirport
     }),
-    { setModelValue, setDistance, fetchDistance }
+    { setModelValue, fetchDistance }
 
 )(AirportDistance);

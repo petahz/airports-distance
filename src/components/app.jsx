@@ -31,12 +31,12 @@ function App ({
 
                 { // Nice for debugging to see entire Redux store
                 // Probably a Chrome extension that does the same
-                <Panel
-                    faIcon="tree"
-                    style={style.panel}
-                    title="Redux State" >
-                    <CodeBlock code={state} />
-                </Panel> 
+                // <Panel
+                //     faIcon="tree"
+                //     style={style.panel}
+                //     title="Redux State" >
+                //     <CodeBlock code={state} />
+                // </Panel> 
                 }
 
             </section>

@@ -45,6 +45,7 @@ export class AirportDistanceResults extends React.Component {
 const styles = {
   forms: {
     display: 'flex',
+    flexDirection: 'column',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     alignItems: 'center'

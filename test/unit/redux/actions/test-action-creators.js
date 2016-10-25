@@ -108,6 +108,30 @@ describe('Action Creators', () => {
             });
         });
     });
+    describe('setModelValue', () => {
+        let store, getState;
+        beforeEach(() => {
+            getState = {};
+            store = mockStore(getState);
+        });
+
+        it('should make an action creator for setting any model\'s value', () => {
+            var airportValue = {code: 'JFK', name: 'John F. Kennedy Airport'};
+
+            let action = actionCreators.setModelValue('firstAirport', airportValue);
+            const expectedAction = {
+                type: 'SET_MODEL_VALUE',
+                entity: 'firstAirport',
+                value: airportValue
+            };
+
+            expect(
+                action
+            ).toEqual(
+                expectedAction
+            );
+        });
+    });
     describe('API', () => {
 
         let store, getState, mockEntity;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AirportDistance from './airport/airport-distance';
-import AirportDistanceResults from './airport/airport-distance-results';
+import AirportDistance from './airport/AirportDistance';
+import AirportDistanceResults from './airport/AirportDistanceResults';
 import CodeBlock from './common/code-block';
 import HeroHeading from './common/hero-heading';
 import Panel from './common/panel';

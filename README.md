@@ -11,15 +11,16 @@ I then proceeded to look for a list of all U.S. airports, and came across a JSON
 
 From there, I put together AirportDistance and AirportDistanceResults components, and set up action-creators and reducers for setting airport model values and distance in Redux.
 
-I used material-ui for an autocomplete dropdown, and google-maps-react, which I had to dig into the source code for to figure out what props I can pass in to have it show the way I wanted. There is a simple server-side endpoint used to hit the Airport API and fetch the distance between two airports.
+I used material-ui for an autocomplete dropdown, and google-maps-react, which I had to dig into the source code for to figure out what props I can pass in to have it show the way I wanted. There is a simple server endpoint used to hit a third-party Airport API and fetch the distance between two airports.
+
+Unit tests were written for the Action Creator 'setModelValue' and the reducer 'SET_MODEL_VALUE'. 
 
 Even though there was no time limit, I wanted to complete it in a weekend and get to a working implementation quickly. I then used whatever splotches of time I had in the weekends after to refine. I would be happy to make any updates one would like to see.
-
-Future possibilities:
-- Understanding conventions in React and Redux better to restructure files
-- Automated tests
 
 
 ## Get Started
 1. `npm install`
 2. `npm start`
+
+## Run tests
+1. `npm test`

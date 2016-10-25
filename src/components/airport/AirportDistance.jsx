@@ -3,14 +3,11 @@ import { connect } from 'react-redux';
 const usAirports = require('../../common/us_airports.json');
 import { setModelValue } from '../../redux/actions/action-creators';
 import { fetchDistance } from '../../redux/actions/thunk-action-creators';
-import DataAccessService from '../../services/data/data-access-service';
-import onTouchTap from 'react-tap-event-plugin';
 import AutoComplete from 'material-ui/AutoComplete';
 
 export class AirportDistance extends React.Component {
 
   constructor(props) {
-    console.log('props: ', props);
     super(props);
 
     this.state = {
@@ -33,13 +30,9 @@ export class AirportDistance extends React.Component {
 
   getDistance = () => {
     if (this.props.firstAirport && this.props.secondAirport.code ) {
-        this.props.setModelValue('firstAirportResult', this.props.firstAirport);
-        this.props.setModelValue('secondAirportResult', this.props.secondAirport);
+      this.props.setModelValue('firstAirportResult', this.props.firstAirport);
+      this.props.setModelValue('secondAirportResult', this.props.secondAirport);
       this.props.fetchDistance(this.props.firstAirport.code, this.props.secondAirport.code);
-      // setDistance().then(function(response) {
-      //   this.props.setModelValue('firstAirportResult', this.props.firstAirport);
-      //   this.props.setModelValue('secondAirportResult', this.props.secondAirport);
-      // });
     }
   }
 
@@ -65,9 +58,10 @@ export class AirportDistance extends React.Component {
           maxSearchResults={5}
         />
         <button
+            ref="submit"
             className="button-primary"
             onClick={this.getDistance}>
-            Submit
+            Calculate
         </button>
       </div>
     );

@@ -183,4 +183,10 @@ describe('Thunk Action Creators', () => {
             });
         });
     });
+
+    describe('fetchDistance', () => {
+        it('should set the distance model', () => {
+
+        });
+    });
 });

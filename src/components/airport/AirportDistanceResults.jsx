@@ -9,7 +9,7 @@ export class AirportDistanceResults extends React.Component {
 
   constructor(props) {
     super(props);
-    this.props.google = window.google;
+    // this.props.google = window.google;
   }
 
   componentWillUpdate() {
@@ -25,7 +25,7 @@ export class AirportDistanceResults extends React.Component {
     } else if (this.props.firstAirportResult && this.props.secondAirportResult && this.props.distance.data) {
       return (
         <div style={{...styles.forms}}>
-          <p>The distance between {this.props.firstAirportResult.code} and {this.props.secondAirportResult.code} is {Math.round(this.props.distance.data.distance)} nautical miles.</p>
+          <p className="result">The distance between {this.props.firstAirportResult.code} and {this.props.secondAirportResult.code} is {Math.round(this.props.distance.data.distance)} nautical miles.</p>
           <Map google={window.google} zoom={4} initialCenter={{lat: this.centerLat, lng: this.centerLng}} containerStyle={{...styles.mapContainerStyle}} style={{...styles.map}}>
             <Marker
               name={this.props.firstAirportResult.name}

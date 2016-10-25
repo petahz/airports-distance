@@ -23,7 +23,7 @@ if (NodeUtils.isProduction()) {
     );
 
     app.get('/get-distance', (req,res) => {
-        var url = config.airportApi.baseUrl + "distance/" + req.query.fromAirportCode + "/" + req.query.toAirportCode;
+        var url = "/distance/" + req.query.fromAirportCode + "/" + req.query.toAirportCode;
         var queryParams = {user_key: config.airportApi.key};
 
         request.get({url: url, qs: queryParams, json: true}, (err, response, body) => {

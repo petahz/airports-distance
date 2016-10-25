@@ -1,7 +1,7 @@
 {
   "example": {
     "port": 3060,
-    "baseUrl": "http://localhost:3060/"
+    "baseUrl": "https://airport-distance-calculator.herokuapp.com/"
   },
   "airportApi": {
     "baseUrl": "https://airport.api.aero/airport/",

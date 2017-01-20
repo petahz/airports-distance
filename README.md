@@ -1,4 +1,4 @@
-# Airport Distance app
+# Airport Distance Calculator
 
 
 ## Get Started
